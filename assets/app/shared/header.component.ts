@@ -7,7 +7,10 @@ import { Component } from "@angular/core";
             <li><a routerLink="/message" routerLinkActive="active">Messenger</a></li>
             <li><a routerLink="/auth" routerLinkActive="active">Authentication</a></li>
         </ul>
-    `
+    `,
+    styles: [`
+        .active { background: #337ab7; border-color: #2e6da4; color: white; }
+    `]
 })
 export class HeaderComponent {
 
