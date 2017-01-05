@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 
 @Component({
-    selector: 'app-messages',
+    selector: 'app-message',
     templateUrl: './messages.component.html'
 })
 export class MessagesComponent {

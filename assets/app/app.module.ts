@@ -5,18 +5,20 @@ import { RouterModule, Routes } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./shared/header.component";
+import { MessagesComponent } from "./messages/messages.component";
 import { MessageComponent } from "./messages/message.component";
 import { MessageListComponent } from "./messages/message-list.component";
 import { MessageInputComponent } from "./messages/message-input.component";
 
 const appRoutes: Routes = [
-    { path: '', component: MessageListComponent },
+    { path: 'message', component: MessagesComponent },
 ]
 
 @NgModule({
     declarations: [
         AppComponent,
         HeaderComponent,
+        MessagesComponent,
         MessageComponent,
         MessageListComponent,
         MessageInputComponent
