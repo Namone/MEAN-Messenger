@@ -11,11 +11,19 @@ import { MessageListComponent } from "./messages/message-list.component";
 import { MessageInputComponent } from "./messages/message-input.component";
 
 import { AuthenticationComponent } from "./auth/authentication.component";
+import { SigninComponent } from "./auth/signin.component";
+import { SignupComponent } from "./auth/signup.component";
+import { LogoutComponent } from "./auth/logout.component";
 
 const appRoutes: Routes = [
     { path: '', redirectTo: '/message', pathMatch: 'full' },
     { path: 'message', component: MessagesComponent },
-    { path: 'auth', component: AuthenticationComponent }
+    { path: 'auth', component: AuthenticationComponent, children: [ 
+        { path: '', redirectTo: 'signin', pathMatch: 'full' }, 
+        { path: 'signin', component: SigninComponent },
+        { path: 'signup', component: SignupComponent },
+        { path: 'logout', component: LogoutComponent }  
+    ] }
 ]
 
 @NgModule({
@@ -26,7 +34,10 @@ const appRoutes: Routes = [
         MessageComponent,
         MessageListComponent,
         MessageInputComponent,
-        AuthenticationComponent
+        AuthenticationComponent,
+        SigninComponent,
+        SignupComponent,
+        LogoutComponent
     ],
     imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
     bootstrap: [AppComponent]
