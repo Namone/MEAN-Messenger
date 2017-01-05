@@ -2,7 +2,7 @@ import { Message } from "./message.model";
 
 export class MessageService {
     
-    private messages: Message[] = [new Message('Alex', 'Content!'), new Message('Alex', 'More content...')]; // an array of our messages
+    private messages: Message[] = []; // an array of our messages
 
     addMessage(message: Message) {
        this.messages.push(message);
