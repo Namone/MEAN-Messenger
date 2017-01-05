@@ -11,7 +11,7 @@ export class MessageService {
     constructor (private http: Http) {}
 
     addMessage(message: Message) {
-       this.messages.push(message);
+       this.messages.push(message); // this appears on front end
        const body = JSON.stringify(message); // convert to JSON
        const headers = new Headers({ 'Content-Type': 'application/json' });
        return this.http.post('http://localhost:3000/message', body, { headers: headers })
@@ -21,6 +21,10 @@ export class MessageService {
 
     deleteMessage(message: Message) {
         this.messages.splice(this.messages.indexOf(message), 1);
+
+        return this.http.delete('http://localhost:3000/message/' + message.messageId)
+            .map((response: Response) => response.json())
+            .catch((error: Response) => Observable.throw(error.json()));
     }
 
     getMessages() {
@@ -33,7 +37,7 @@ export class MessageService {
                     transformedMessages.push(new Message(message.content, message.author));
                 }
                 this.messages = transformedMessages;
-                return transformedMessages;
+                return transformedMessages; // this is given to subscribers
             })
             
             .catch((error: Response) => Observable.throw(error.json()));

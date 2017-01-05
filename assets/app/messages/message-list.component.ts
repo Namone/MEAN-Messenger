@@ -14,8 +14,8 @@ export class MessageListComponent implements OnInit {
     ngOnInit() {
         this.messageService.getMessages()
             .subscribe(
-                (messages: Message[]) => {
-                    this.messages = messages;
+                (messageObj: Message[]) => { // this variable 'const messages = ...json().obj'
+                    this.messages = messageObj;
                 }
             ); // return messages and clone to array here
         console.log(this.messages);

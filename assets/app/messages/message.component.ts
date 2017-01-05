@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";;
 import { MessageService } from "./message.service";
+
 @Component ({
     selector: 'app-messages',
     templateUrl: './message.component.html',
@@ -18,9 +19,5 @@ export class MessageComponent {
 
     onDelete() {
         this.messageService.deleteMessage(this.message);
-    }
-
-    onEdit() {
-
     }
 }
