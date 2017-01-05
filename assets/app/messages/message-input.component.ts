@@ -9,12 +9,16 @@ import { Message } from "./message.model";
 })
 export class MessageInputComponent implements OnInit {
 
-    message: Message;
     constructor(private messageService: MessageService) { }
 
     onSubmit(form: NgForm) {
-        this.message = new Message('Alex', form.value.content);
-        this.messageService.addMessage(this.message)
+        const message = new Message(form.value.content, 'Alex');
+        this.messageService.addMessage(message)
+            .subscribe(
+                data => console.log(data),
+                error => console.error(error)
+            );
+        form.resetForm();
     }
 
     // Run on initialize

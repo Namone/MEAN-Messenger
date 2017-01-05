@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from "@angular/router";
+import { HttpModule } from "@angular/http";
 
 import { AppComponent } from "./app.component";
 import { HeaderComponent } from "./shared/header.component";
@@ -16,8 +17,8 @@ import { SignupComponent } from "./auth/signup.component";
 import { LogoutComponent } from "./auth/logout.component";
 
 const appRoutes: Routes = [
-    { path: '', redirectTo: '/message', pathMatch: 'full' },
-    { path: 'message', component: MessagesComponent },
+    { path: '', redirectTo: '/message-list', pathMatch: 'full' },
+    { path: 'message-list', component: MessagesComponent },
     { path: 'auth', component: AuthenticationComponent, children: [ 
         { path: '', redirectTo: 'signin', pathMatch: 'full' }, 
         { path: 'signin', component: SigninComponent },
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
         SignupComponent,
         LogoutComponent
     ],
-    imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
+    imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes), HttpModule ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
