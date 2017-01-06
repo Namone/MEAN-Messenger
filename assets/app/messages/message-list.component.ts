@@ -18,6 +18,8 @@ export class MessageListComponent implements OnInit {
                     this.messages = messageObj;
                 }
             ); // return messages and clone to array here
-        console.log(this.messages);
+        if (this.messages != null) {
+            console.log(this.messages);
+        }
     }
 }

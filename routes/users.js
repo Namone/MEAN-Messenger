@@ -13,13 +13,13 @@ router.post('/', function(req, res, next) {
 
     user.save(function(err, success) { // save the user and let us know what happened
         if (err) {
-            return res.send(500).json({
+            return res.status(500).json({
                 error_message: 'There was an error adding the user!',
                 error: err
             }); // an error occurred - jump out via 'return'
         }
 
-        res.send(200).json({
+        res.status(200).json({
             success_message: 'User added!',
             success: success,
         }); // user added!
