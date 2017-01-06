@@ -25,3 +25,27 @@ a.danger {
 input.ng-invalid.ng-touched {
   border: 1px solid red;
 }
+
+.form-wrapper {
+  float: left;
+  width: 100%;
+  margin: 15px 0; 
+}
+
+.form-wrapper input {
+  margin: 15px 0;
+}
+
+button.full-width {
+  width: 100%;
+}
+
+input.left {
+  width: 49%; 
+  float: left;
+}
+
+input.right {
+  width: 49%;
+  float: right;
+}

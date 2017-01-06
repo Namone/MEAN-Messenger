@@ -1,8 +1,11 @@
 <form (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="form-body form-group">
-        <input type="text" name="content" class="form-control" ngModel>
-        <br />
-        <button class="btn btn-primary" type="submit">Submit</button>
+        <div class="form-wrapper">
+            <input type="text" name="content" class="form-control full-width" placeholder="Message Content" ngModel>
+        </div>
+
+        <div class="form-wrapper">
+            <button class="btn btn-primary full-width" type="submit">Submit</button>
+        </div>
     </div>
 </form>
-<hr />

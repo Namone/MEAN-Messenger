@@ -17,7 +17,7 @@ export class MessageService {
        return this.http.post('http://localhost:3000/message', body, { headers: headers })
             .map((response: Response) => {
                 const result = response.json();
-                const message = new Message(result.obj.content, 'Alex', result.obj._id);
+                const message = new Message(result.obj.content, result.obj.author, result.obj._id);
                 this.messages.push(message);
                 return message;
             })

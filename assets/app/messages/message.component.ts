@@ -19,8 +19,6 @@ export class MessageComponent {
 
     onDelete() {
         this.messageService.deleteMessage(this.message)
-            .subscribe(
-                
-            );
+            .subscribe();
     }
 }

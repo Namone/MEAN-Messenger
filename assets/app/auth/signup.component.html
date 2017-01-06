@@ -1,0 +1,12 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-body form-group">
+        <div class="form-wrapper">
+            <input type="text" required class="form-control left" name="username" placeholder="Username Desired..." ngModel>
+            <input type="text" required class="form-control right" name="password" placeholder="Password" ngModel>
+            <input type="email" required class="form-control full-width" name="email" placeholder="Email" ngModel>
+        </div>
+        <div class="form-wrapper">
+            <button class="btn btn-primary" type="submit">Singup!</button>
+        </div>
+    </div>
+</form>

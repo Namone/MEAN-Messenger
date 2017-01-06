@@ -5,14 +5,14 @@ import { Message } from "./message.model";
 
 @Component({
     selector: 'app-message-input',
-    templateUrl: './message-input.component.html'
+    templateUrl: './message-input.component.html',
 })
 export class MessageInputComponent implements OnInit {
 
     constructor(private messageService: MessageService) { }
 
     onSubmit(form: NgForm) {
-        const message = new Message(form.value.content, 'Alex');
+        const message = new Message(form.value.content, 'Anonymous');
         this.messageService.addMessage(message)
             .subscribe(
                 data => console.log(data),
