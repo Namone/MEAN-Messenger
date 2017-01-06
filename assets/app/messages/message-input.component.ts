@@ -12,13 +12,7 @@ export class MessageInputComponent implements OnInit {
     constructor(private messageService: MessageService) { }
 
     onSubmit(form: NgForm) {
-        var id = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-
-        for (var i = 0; i < 10; i++) {
-            id += possible.charAt(Math.floor(Math.random() * possible.length));
-        }
-        const message = new Message(form.value.content, 'Alex', id);
+        const message = new Message(form.value.content, 'Alex');
         this.messageService.addMessage(message)
             .subscribe(
                 data => console.log(data),

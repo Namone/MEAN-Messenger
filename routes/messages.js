@@ -22,7 +22,8 @@ router.get('/', function(req, res, next) {
 
 router.delete('/:id', function(req, res, next) {
     console.log('Deleting message...');
-    Message.findbyId(req.params.id, function(err, message) {
+    
+    Message.findById(req.params.id, function(err, message) {
         if (err) {
             return res.status(500).json({
                 title: 'An error occurred when trying to delete this message.',
@@ -56,8 +57,7 @@ router.delete('/:id', function(req, res, next) {
 router.post('/', function (req, res, next) {
     var message = new Message({
         content: req.body.content,
-        author: 'Alex',
-        messageId: req.body.messageId,
+        author: req.body.author,
     });
 
     message.save(function(err, result) {

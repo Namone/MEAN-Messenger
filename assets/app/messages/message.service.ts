@@ -11,11 +11,16 @@ export class MessageService {
     constructor (private http: Http) {}
 
     addMessage(message: Message) {
-       this.messages.push(message); // this appears on front end
+       
        const body = JSON.stringify(message); // convert to JSON
        const headers = new Headers({ 'Content-Type': 'application/json' });
        return this.http.post('http://localhost:3000/message', body, { headers: headers })
-            .map((response: Response) => response.json())
+            .map((response: Response) => {
+                const result = response.json();
+                const message = new Message(result.obj.content, 'Alex', result.obj._id);
+                this.messages.push(message);
+                return message;
+            })
             .catch((error: Response) => Observable.throw(error.json()));
     }
 
@@ -34,7 +39,7 @@ export class MessageService {
                 let transformedMessages: Message[] = []; // array to hold transformed messages
 
                 for (let message of messages) {
-                    transformedMessages.push(new Message(message.content, message.author));
+                    transformedMessages.push(new Message(message.content, message.author, message._id));
                 }
                 this.messages = transformedMessages;
                 return transformedMessages; // this is given to subscribers
