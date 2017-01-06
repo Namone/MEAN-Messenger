@@ -21,7 +21,11 @@ export class SignupComponent {
 
         // ... now do something with them
         this.auth.addUser(user)
-            .subscribe();
+            .subscribe(
+                data => console.log(data)
+            );
+
+        form.reset();
     }
 
 }
